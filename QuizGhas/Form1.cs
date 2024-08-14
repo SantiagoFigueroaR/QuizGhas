@@ -18,18 +18,26 @@ namespace QuizGhas
         private List<int> respuestasUsuario;
         private int preguntaActual = 0;
         private int puntaje = 0;
+        private Timer temporizador; // Declarar el temporizador
+        private int tiempoRestante = 3600; // Tiempo total en segundos (60 minutos)
+
         public Form1()
         {
+            InitializeComponent();
+            CargarPreguntas();
+            respuestasUsuario = new List<int>();
+            for (int i = 0; i < preguntas.Count; i++)
             {
-                InitializeComponent();
-                CargarPreguntas();
-                respuestasUsuario = new List<int>();
-                for (int i = 0; i < preguntas.Count; i++)
-                {
-                    respuestasUsuario.Add(-1); // Inicializar la lista con valores -1
-                }
-                MostrarPregunta();
+                respuestasUsuario.Add(-1); // Inicializar la lista con valores -1
             }
+
+            // Inicializar el temporizador
+            temporizador = new Timer();
+            temporizador.Interval = 1000; // 1 segundo
+            temporizador.Tick += Temporizador_Tick;
+            temporizador.Start();
+
+            MostrarPregunta();
         }
 
         private void CargarPreguntas()
@@ -79,6 +87,25 @@ namespace QuizGhas
                 rdbtnOpcion5.Checked = false;
             }
         }
+
+        // Manejo del evento Tick del temporizador
+        private void Temporizador_Tick(object sender, EventArgs e)
+        {
+            tiempoRestante--;
+            // Mostrar el tiempo restante en la interfaz
+            lblTiempoRestante.Text = $"Tiempo restante: {tiempoRestante / 60}:{tiempoRestante % 60:D2}";
+
+            // Si el tiempo se agota
+            if (tiempoRestante <= 0)
+            {
+                temporizador.Stop(); // Detener el temporizador
+                MessageBox.Show("Se ha agotado el tiempo.");
+
+                // Finalizar el quiz o manejar el tiempo agotado a su gusto
+                FinalizarQuiz();
+            }
+        }
+
         private void btnValidar_Click(object sender, EventArgs e)
         {
             int indiceSeleccionado = ObtenerOpcionSeleccionada();
@@ -92,10 +119,13 @@ namespace QuizGhas
                 if (indiceSeleccionado == pregunta.RespuestaCorrecta)
                 {
                     MessageBox.Show("¡Correcto!");
+                    puntaje++;
+                    MostrarRespuestaCorrecta(); // Mostrar la respuesta correcta por 5 segundos
                 }
                 else
                 {
                     MessageBox.Show("Respuesta incorrecta.");
+                    MostrarRespuestaCorrecta(); // Mostrar la respuesta correcta por 5 segundos
                 }
 
                 // Deshabilitar solo el botón Validar, no los RadioButtons
@@ -125,6 +155,12 @@ namespace QuizGhas
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
+            FinalizarQuiz(); // Llamar a la función para finalizar el quiz
+        }
+
+        private void FinalizarQuiz()
+        {
+            temporizador.Stop(); // Detener el temporizador al finalizar
             puntaje = 0;
             int totalPreguntasContestadas = 0;
             for (int i = 0; i < preguntas.Count; i++)
@@ -144,6 +180,7 @@ namespace QuizGhas
             // Cerrar la aplicación
             Application.Exit();
         }
+
         // Nueva función para guardar la respuesta actual si no se ha validado
         private void GuardarRespuestaActual()
         {
@@ -157,6 +194,46 @@ namespace QuizGhas
                 respuestasUsuario[preguntaActual] = -1; // Guardar -1 si no se ha seleccionado ninguna opción
             }
         }
+
+        // Ocultar la respuesta correcta después de 5 segundos
+        private async void MostrarRespuestaCorrecta()
+        {
+            // Obtener la respuesta correcta para la pregunta actual
+            int respuestaCorrecta = preguntas[preguntaActual].RespuestaCorrecta;
+
+            // Mostrar la respuesta correcta en un label o mensaje
+            // (Reemplaza "lblRespuesta" con el nombre de tu label)
+            lblRespuestaCorrecta.Text = $"La respuesta correcta es: {preguntas[preguntaActual].Opciones[respuestaCorrecta]}";
+            lblRespuestaCorrecta.Visible = true;
+
+            // Esperar 5 segundos
+            await Task.Delay(5000);
+
+            // Ocultar la respuesta correcta
+            lblRespuestaCorrecta.Visible = false;
+        }
+
+        // Obtener la opción seleccionada
+        private int ObtenerOpcionSeleccionada()
+        {
+            if (rdbtnOpcion1.Checked) return 0;
+            if (rdbtnOpcion2.Checked) return 1;
+            if (rdbtnOpcion3.Checked) return 2;
+            if (rdbtnOpcion4.Checked) return 3;
+            if (rdbtnOpcion5.Checked) return 4;
+            return -1; // No se seleccionó nada
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            if (preguntaActual > 0)
+            {
+                preguntaActual--;
+                MostrarPregunta();
+            }
+        }
+
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -178,26 +255,37 @@ namespace QuizGhas
 
         }
 
-
-
-        private int ObtenerOpcionSeleccionada()
+        private void btnValidar_Click_1(object sender, EventArgs e)
         {
-            if (rdbtnOpcion1.Checked) return 0;
-            if (rdbtnOpcion2.Checked) return 1;
-            if (rdbtnOpcion3.Checked) return 2;
-            if (rdbtnOpcion4.Checked) return 3;
-            if (rdbtnOpcion5.Checked) return 4;
-            return -1; // No se seleccionó nada
-        }
+            int indiceSeleccionado = ObtenerOpcionSeleccionada();
 
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-            if (preguntaActual > 0)
+            if (indiceSeleccionado != -1)
             {
-                preguntaActual--;
-                MostrarPregunta();
+                // Guardar la respuesta seleccionada por el usuario
+                respuestasUsuario[preguntaActual] = indiceSeleccionado;
+
+                var pregunta = preguntas[preguntaActual];
+                if (indiceSeleccionado == pregunta.RespuestaCorrecta)
+                {
+                    MessageBox.Show("¡Correcto!");
+                    puntaje++;
+                    MostrarRespuestaCorrecta(); // Mostrar la respuesta correcta por 5 segundos
+                }
+                else
+                {
+                    MessageBox.Show("Respuesta incorrecta.");
+                    MostrarRespuestaCorrecta(); // Mostrar la respuesta correcta por 5 segundos
+                }
+
+                // Deshabilitar solo el botón Validar, no los RadioButtons
+                btnValidar.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una opción antes de validar.");
             }
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 

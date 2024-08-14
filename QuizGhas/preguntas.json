@@ -1,92 +1,137 @@
 ﻿[
-    {
-      "PreguntaTexto": "What is a limitation of Dependabot?",
-      "Opciones": [ "Dependabot cannot find dependencies of dependencies.", "Dependabot can only analyse the ecosystems it knows and looks for those manifest files within the repository.", "There are some ecosystems not supported yet and some ecosystems that do not use the manifest file.", "Dependabot always finds all security issues." ],
-      "RespuestaCorrecta": 1
-    },
-    {
-      "PreguntaTexto": "How can you enable the Dependency Graph feature?",
-      "Opciones": [ "by contacting GitHub Support", "In the sidebar on the Code tab", "in the settings of the repository", "Under the repository settings in Code Security and Analysis you can enable the Dependency Graph." ],
-      "RespuestaCorrecta": 2
-    },
-    {
-      "PreguntaTexto": "Why is it important to know about the parts that make up your software?",
-      "Opciones": [ "to be aware of updates as well as security fixes for them", "so you know which part of software is not written by your own company", "so you can disclose the use of open source libraries" ],
-      "RespuestaCorrecta": 0
-    },
-    {
-      "PreguntaTexto": "Why could alerts not be generated for new dependencies you've added to your repository?",
-      "Opciones": [ "Dependabot only scans the default branch after each completed pull request.", "Dependabot always scans the default branch after each commit.", "Those new dependencies have not been added to the default branch yet.", "Dependabot only scans the default branch of the repository.", "Dependabot has not yet scanned the default branch." ],
-      "RespuestaCorrecta": 2
-    },
-    {
-      "PreguntaTexto": "What is meant by transient dependencies?",
-      "Opciones": [ "dependencies found in public repos", "the risk scope of a dependency", "software with dependencies, and the dependencies have dependencies", "This refers to all dependencies that you are pulling into your application." ],
-      "RespuestaCorrecta": 2
-    },
-    {
-      "PreguntaTexto": "Where does Dependabot check for used packages in a repository?",
-      "Opciones": [ "in the default branch", "in the branch with the latest update", "in all branches" ],
-      "RespuestaCorrecta": 0
-    },
-    {
-      "PreguntaTexto": "How do you tell Dependabot to run for multiple package ecosystems?",
-      "Opciones": [ "You create multiple configuration files, one for each ecosystem.", "You specify multiple ecosystem entries in the configuration file.", "The configuration file lets you add multiple ecosystems in the same file, each with its own settings.", "As long as you store each file in a separate branch, Dependabot will pick it up." ],
-      "RespuestaCorrecta": 1
-    },
-    {
-      "PreguntaTexto": "Where does the Dependabot configuration file need to be stored?",
-      "Opciones": [ "in the .github folder on the default branch as dependabot.yml", "in the Docs folder in the default branch", "in the .github folder in the Dependabot branch as dependabot.yml", "in the Root folder in the Dependabot branch as dependabot.yml" ],
-      "RespuestaCorrecta": 0
-    },
-    {
-      "PreguntaTexto": "How do you set the Dependabot to check for updates every week?",
-      "Opciones": [ "Set the interval property to weekly.", "Set the schedule property to days and the 'count' property to '7'.", "Set the open-pull-requests-limit property to 7." ],
-      "RespuestaCorrecta": 0
-    },
-    {
-      "PreguntaTexto": "If a newer version of software with a vulnerability fix is not available, then what is another possible risk assessment solution to try?",
-      "Opciones": [ "Turn off the vulnerability alerts for that software and consider the risk acceptable.", "Find an earlier compatible version of the software without the vulnerability and downgrade.", "Reverting to an earlier version that does not have the vulnerability might be an option.", "Ignore the alert and wait for future updates." ],
-      "RespuestaCorrecta": 1
-    },
-    {
-      "PreguntaTexto": "How can an organization gradually adopt automatic security updates across their repositories?",
-      "Opciones": [ "Enable the organization setting to Disable automatic pull requests and let each team decide when to enable pull requests.", "Configure the organization setting for Automatically enable for new repositories and let each team decide when to enable updates.", "This way you ensure new repositories are secure from the start.", "Enable the organization settings for each software package to get manual updates." ],
-      "RespuestaCorrecta": 1
-    },
-    {
-      "PreguntaTexto": "What will trigger an automatic security update?",
-      "Opciones": [ "simply enabling Dependabot", "when Dependabot runs for the first time and there are security fixes available", "when Dependabot learns about a security fix for one of the vulnerable dependencies in the repository and the setting for generating security updates has been enabled", "When a fix for a security vulnerability is available, Dependabot will generate a Pull Request for adding the fix to the repo." ],
-      "RespuestaCorrecta":2
-    },
-    {
-      "PreguntaTexto": "What are you assessing when triaging a vulnerable dependency alert?",
-      "Opciones": [ "the risk that your application has, based on this dependency", "For each vulnerability alert, a Common Vulnerable Security Score can give you insight into the amount of risk you have for this dependency.", "the number of alerts this dependency has generated in the past", "where the notifications for the alerts are being sent to" ],
-      "RespuestaCorrecta": 0
-    },
-    {
-      "PreguntaTexto": "When is a vulnerability alert generated?",
-      "Opciones": [ "when a match is found in a vulnerability database for the version you use in you repository", "Dependabot matches the version of all dependencies it found with the known vulnerability database. If a match is found, an alert will be generated.", "when Dependabot finds a new dependency in your repository", "when Depedabot has run a full scan" ],
-      "RespuestaCorrecta": 0
-    },
-    {
-      "PreguntaTexto": "When using Gradle, what is one important thing to note about dependency information?",
-      "Opciones": [ "Gradle uses manifest files to build a dependency tree.", "The full dependency tree is not known until the entire application is built.", "The dependency tree data is automatically sent to Dependabot when an application is built." ],
-      "RespuestaCorrecta": 1
-    },
-    {
-      "PreguntaTexto": "Where does GitHub get information about vulnerabilities?",
-      "Opciones": [ "Open Source Vulnerability Database (OSST)", "National Vulnerability Database (NIST) and the GitHub Security Advisories", "Package Manager Vulnerability Database (PMD)" ],
-      "RespuestaCorrecta": 1
-    },
-    {
-      "PreguntaTexto": "How is the Common Vulnerability Security Score calculated?",
-      "Opciones": [ "It is a calculation of the number of repositories that have been exploited by a particular vulnerability.", "The amount of compromised repositories is not part of the calculation of this score.", "It is based on security standards that consider a variety of factors.", "It is based on an algorithm that has been created by GitHub.", "The industry standard is an open standard that can be used by anyone." ],
-      "RespuestaCorrecta": 2
-    },
-    {
-      "PreguntaTexto": "When will a new entry in the GitHub Security Advisory database trigger a new vulnerability alert?",
-      "Opciones": [ "if the new entry has been validated by the GitHub security team and labeled as an actual vulnerability", "when the NIST National Vulnerability Database has confirmed the new vulnerability", "immediately after being added to the GitHub Security Advisories database", "New entries will not immediately trigger new alerts being sent out." ],
-      "RespuestaCorrecta": 0
-    }
- ]
+  {
+    "PreguntaTexto": "What is a limitation of Dependabot?",
+    "Opciones": [ "Dependabot cannot find dependencies of dependencies.", "Dependabot can only analyse the ecosystems it knows and looks for those manifest files within the repository.", "There are some ecosystems not supported yet and some ecosystems that do not use the manifest file.", "Dependabot always finds all security issues." ],
+    "RespuestaCorrecta": 1
+  },
+  {
+    "PreguntaTexto": "How can you enable the Dependency Graph feature?",
+    "Opciones": [ "by contacting GitHub Support", "In the sidebar on the Code tab", "in the settings of the repository", "Under the repository settings in Code Security and Analysis you can enable the Dependency Graph." ],
+    "RespuestaCorrecta": 2
+  },
+  {
+    "PreguntaTexto": "Why is it important to know about the parts that make up your software?",
+    "Opciones": [ "to be aware of updates as well as security fixes for them", "so you know which part of software is not written by your own company", "so you can disclose the use of open source libraries" ],
+    "RespuestaCorrecta": 0
+  },
+  {
+    "PreguntaTexto": "Why could alerts not be generated for new dependencies you've added to your repository?",
+    "Opciones": [ "Dependabot only scans the default branch after each completed pull request.", "Dependabot always scans the default branch after each commit.", "Those new dependencies have not been added to the default branch yet.", "Dependabot only scans the default branch of the repository.", "Dependabot has not yet scanned the default branch." ],
+    "RespuestaCorrecta": 2
+  },
+  {
+    "PreguntaTexto": "What is meant by transient dependencies?",
+    "Opciones": [ "dependencies found in public repos", "the risk scope of a dependency", "software with dependencies, and the dependencies have dependencies", "This refers to all dependencies that you are pulling into your application." ],
+    "RespuestaCorrecta": 2
+  },
+  {
+    "PreguntaTexto": "Where does Dependabot check for used packages in a repository?",
+    "Opciones": [ "in the default branch", "in the branch with the latest update", "in all branches" ],
+    "RespuestaCorrecta": 0
+  },
+  {
+    "PreguntaTexto": "How do you tell Dependabot to run for multiple package ecosystems?",
+    "Opciones": [ "You create multiple configuration files, one for each ecosystem.", "You specify multiple ecosystem entries in the configuration file.", "The configuration file lets you add multiple ecosystems in the same file, each with its own settings.", "As long as you store each file in a separate branch, Dependabot will pick it up." ],
+    "RespuestaCorrecta": 1
+  },
+  {
+    "PreguntaTexto": "Where does the Dependabot configuration file need to be stored?",
+    "Opciones": [ "in the .github folder on the default branch as dependabot.yml", "in the Docs folder in the default branch", "in the .github folder in the Dependabot branch as dependabot.yml", "in the Root folder in the Dependabot branch as dependabot.yml" ],
+    "RespuestaCorrecta": 0
+  },
+  {
+    "PreguntaTexto": "How do you set the Dependabot to check for updates every week?",
+    "Opciones": [ "Set the interval property to weekly.", "Set the schedule property to days and the 'count' property to '7'.", "Set the open-pull-requests-limit property to 7." ],
+    "RespuestaCorrecta": 0
+  },
+  {
+    "PreguntaTexto": "If a newer version of software with a vulnerability fix is not available, then what is another possible risk assessment solution to try?",
+    "Opciones": [ "Turn off the vulnerability alerts for that software and consider the risk acceptable.", "Find an earlier compatible version of the software without the vulnerability and downgrade.", "Reverting to an earlier version that does not have the vulnerability might be an option.", "Ignore the alert and wait for future updates." ],
+    "RespuestaCorrecta": 1
+  },
+  {
+    "PreguntaTexto": "How can an organization gradually adopt automatic security updates across their repositories?",
+    "Opciones": [ "Enable the organization setting to Disable automatic pull requests and let each team decide when to enable pull requests.", "Configure the organization setting for Automatically enable for new repositories and let each team decide when to enable updates.", "This way you ensure new repositories are secure from the start.", "Enable the organization settings for each software package to get manual updates." ],
+    "RespuestaCorrecta": 1
+  },
+  {
+    "PreguntaTexto": "What will trigger an automatic security update?",
+    "Opciones": [ "simply enabling Dependabot", "when Dependabot runs for the first time and there are security fixes available", "when Dependabot learns about a security fix for one of the vulnerable dependencies in the repository and the setting for generating security updates has been enabled", "When a fix for a security vulnerability is available, Dependabot will generate a Pull Request for adding the fix to the repo." ],
+    "RespuestaCorrecta": 2
+  },
+  {
+    "PreguntaTexto": "What are you assessing when triaging a vulnerable dependency alert?",
+    "Opciones": [ "the risk that your application has, based on this dependency", "For each vulnerability alert, a Common Vulnerable Security Score can give you insight into the amount of risk you have for this dependency.", "the number of alerts this dependency has generated in the past", "where the notifications for the alerts are being sent to" ],
+    "RespuestaCorrecta": 0
+  },
+  {
+    "PreguntaTexto": "When is a vulnerability alert generated?",
+    "Opciones": [ "when a match is found in a vulnerability database for the version you use in you repository", "Dependabot matches the version of all dependencies it found with the known vulnerability database. If a match is found, an alert will be generated.", "when Dependabot finds a new dependency in your repository", "when Depedabot has run a full scan" ],
+    "RespuestaCorrecta": 0
+  },
+  {
+    "PreguntaTexto": "When using Gradle, what is one important thing to note about dependency information?",
+    "Opciones": [ "Gradle uses manifest files to build a dependency tree.", "The full dependency tree is not known until the entire application is built.", "The dependency tree data is automatically sent to Dependabot when an application is built." ],
+    "RespuestaCorrecta": 1
+  },
+  {
+    "PreguntaTexto": "Where does GitHub get information about vulnerabilities?",
+    "Opciones": [ "Open Source Vulnerability Database (OSST)", "National Vulnerability Database (NIST) and the GitHub Security Advisories", "Package Manager Vulnerability Database (PMD)" ],
+    "RespuestaCorrecta": 1
+  },
+  {
+    "PreguntaTexto": "How is the Common Vulnerability Security Score calculated?",
+    "Opciones": [ "It is a calculation of the number of repositories that have been exploited by a particular vulnerability.", "The amount of compromised repositories is not part of the calculation of this score.", "It is based on security standards that consider a variety of factors.", "It is based on an algorithm that has been created by GitHub.", "The industry standard is an open standard that can be used by anyone." ],
+    "RespuestaCorrecta": 2
+  },
+  {
+    "PreguntaTexto": "When will a new entry in the GitHub Security Advisory database trigger a new vulnerability alert?",
+    "Opciones": [ "if the new entry has been validated by the GitHub security team and labeled as an actual vulnerability", "when the NIST National Vulnerability Database has confirmed the new vulnerability", "immediately after being added to the GitHub Security Advisories database", "New entries will not immediately trigger new alerts being sent out." ],
+    "RespuestaCorrecta": 0
+  },
+  {
+    "PreguntaTexto": "Where would a compliance officer go to see a list of closed alerts in a repository?",
+    "Opciones": [ "to the compliance log", "to the activity log", "to the audit log" ],
+    "RespuestaCorrecta": 2
+  },
+  {
+    "PreguntaTexto": "When is a secret scan executed?",
+    "Opciones": [ "during the push of each commit from the web interface", "after enabling the feature and then for each push to the repository", "after each commit that is pushed into the repository", "only once: after enabling the feature" ],
+    "RespuestaCorrecta": 1
+  },
+  {
+    "PreguntaTexto": "Which item would be caught and reported in a secret scan if there is a secret scanning partner for it?",
+    "Opciones": [ "a web service API token", "a company internal mailing address", "a webserver hostname" ],
+    "RespuestaCorrecta": 0
+  },
+  {
+    "PreguntaTexto": "When will the Security tab be visible to a user?",
+    "Opciones": [ "when all members of the repository have access to the Security tab", "when the user has an administrator or security manager role", "when the user has a developer role" ],
+    "RespuestaCorrecta": 1
+  },
+  {
+    "PreguntaTexto": "When is a found secret invalidated?",
+    "Opciones": [ "It is invalidated when the secret scanning partner has confirmed it is an actionable secret.", "That is up to the secret scanning partner.", "It is invalidated immediately after the secret is found." ],
+    "RespuestaCorrecta": 1
+  },
+  {
+    "PreguntaTexto": "What does the following cron statement mean? \"34 12 * * 4\"",
+    "Opciones": [ "Schedule a scan at 12:34 UTC every four days.", "Schedule a scan at 12:34 UTC every Thursday.", "Schedule four scans at 12:34 UTC every day." ],
+    "RespuestaCorrecta": 1
+  },
+  {
+    "PreguntaTexto": "Which CodeQL analysis query will scan against the OWASP top 10?",
+    "Opciones": [ "machine learning", "standard", "security and quality" ],
+    "RespuestaCorrecta": 1
+  },
+  {
+    "PreguntaTexto": "Which risk level will display when all alerts have been mitigated?",
+    "Opciones": [ "clear", "low", "unknown" ],
+    "RespuestaCorrecta": 0
+  },
+  {
+    "PreguntaTexto": "When viewing the security overview, which icon indicates a secret scan alert?",
+    "Opciones": [ "robot face", "speech balloon", "key" ],
+    "RespuestaCorrecta": 2
+  }
+]

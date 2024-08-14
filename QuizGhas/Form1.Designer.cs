@@ -42,6 +42,8 @@ namespace QuizGhas
             this.btnAtras = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.lblNumeroPregunta = new System.Windows.Forms.Label();
+            this.lblTiempoRestante = new System.Windows.Forms.Label();
+            this.lblRespuestaCorrecta = new System.Windows.Forms.Label();
             this.pnlOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +61,7 @@ namespace QuizGhas
             // btnValidar
             // 
             this.btnValidar.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnValidar.Location = new System.Drawing.Point(75, 409);
+            this.btnValidar.Location = new System.Drawing.Point(232, 472);
             this.btnValidar.Name = "btnValidar";
             this.btnValidar.Size = new System.Drawing.Size(85, 29);
             this.btnValidar.TabIndex = 2;
@@ -70,7 +72,7 @@ namespace QuizGhas
             // btnFinalizar
             // 
             this.btnFinalizar.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnFinalizar.Location = new System.Drawing.Point(630, 409);
+            this.btnFinalizar.Location = new System.Drawing.Point(788, 458);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(85, 29);
             this.btnFinalizar.TabIndex = 4;
@@ -95,7 +97,7 @@ namespace QuizGhas
             this.pnlOpciones.Controls.Add(this.rdbtnOpcion3);
             this.pnlOpciones.Controls.Add(this.rdbtnOpcion2);
             this.pnlOpciones.Controls.Add(this.rdbtnOpcion1);
-            this.pnlOpciones.Location = new System.Drawing.Point(49, 113);
+            this.pnlOpciones.Location = new System.Drawing.Point(37, 86);
             this.pnlOpciones.Name = "pnlOpciones";
             this.pnlOpciones.Size = new System.Drawing.Size(678, 267);
             this.pnlOpciones.TabIndex = 6;
@@ -161,7 +163,7 @@ namespace QuizGhas
             // btnAtras
             // 
             this.btnAtras.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnAtras.Location = new System.Drawing.Point(411, 409);
+            this.btnAtras.Location = new System.Drawing.Point(569, 458);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(85, 29);
             this.btnAtras.TabIndex = 7;
@@ -172,7 +174,7 @@ namespace QuizGhas
             // btnSiguiente
             // 
             this.btnSiguiente.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnSiguiente.Location = new System.Drawing.Point(525, 409);
+            this.btnSiguiente.Location = new System.Drawing.Point(683, 458);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(85, 29);
             this.btnSiguiente.TabIndex = 8;
@@ -189,12 +191,33 @@ namespace QuizGhas
             this.lblNumeroPregunta.TabIndex = 9;
             this.lblNumeroPregunta.Text = "Preguntas =";
             // 
+            // lblTiempoRestante
+            // 
+            this.lblTiempoRestante.AutoSize = true;
+            this.lblTiempoRestante.Location = new System.Drawing.Point(304, 21);
+            this.lblTiempoRestante.Name = "lblTiempoRestante";
+            this.lblTiempoRestante.Size = new System.Drawing.Size(48, 13);
+            this.lblTiempoRestante.TabIndex = 10;
+            this.lblTiempoRestante.Text = "Tiempo: ";
+            // 
+            // lblRespuestaCorrecta
+            // 
+            this.lblRespuestaCorrecta.AutoSize = true;
+            this.lblRespuestaCorrecta.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRespuestaCorrecta.Location = new System.Drawing.Point(37, 381);
+            this.lblRespuestaCorrecta.Name = "lblRespuestaCorrecta";
+            this.lblRespuestaCorrecta.Size = new System.Drawing.Size(86, 16);
+            this.lblRespuestaCorrecta.TabIndex = 11;
+            this.lblRespuestaCorrecta.Text = "Respuesta:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(912, 513);
+            this.Controls.Add(this.lblRespuestaCorrecta);
+            this.Controls.Add(this.lblTiempoRestante);
             this.Controls.Add(this.lblNumeroPregunta);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnAtras);
@@ -228,6 +251,8 @@ namespace QuizGhas
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Label lblNumeroPregunta;
+        private System.Windows.Forms.Label lblTiempoRestante;
+        private System.Windows.Forms.Label lblRespuestaCorrecta;
     }
 }
 
